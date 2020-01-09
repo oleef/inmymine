@@ -3,5 +3,6 @@ name: CI
 on: [push]
 
 jobs:
-  run: npm install
+  run: |
+    npm install
     npm run build
