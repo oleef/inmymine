@@ -5,9 +5,11 @@ const {
 
 module.exports = phase => {
   const isDev = phase === PHASE_DEVELOPMENT_SERVER;
+  const isSer = phase === PHASE_PRODUCTION_BUILD;
   const env = {
     APP_DOMAIN: (() => {
-      if (isDev) return "http://localhost:3000";
+      if (isDev) return "https://localhost:3000";
+      if (isSer) return "https://inmymine.oleefplus.now.sh";
     })(),
     API_DOMAIN: (() => {
       if (isDev) return "https://jsonplaceholder.typicode.com";
