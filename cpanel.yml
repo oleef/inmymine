@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/cp917133/public_html/inmymine.com
+    - /bin/cp -R images $DEPLOYPATH
