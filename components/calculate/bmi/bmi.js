@@ -3,7 +3,7 @@ import Card from "../../card/card";
 const BMI = () => {
   return (
     <Fragment>
-      <Card size={12} title="BMI" withHeader={true}>
+      <Card className="col-12" title="BMI" withHeader={true}>
         <div className="row">
           <div className="col-6">
             <div className="form-group">

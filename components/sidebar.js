@@ -8,7 +8,7 @@ import { SIDEBAR_ITEM } from "../configs/sidebar.config";
 
 const Sidebar = () => {
   return (
-    <Card size={12}>
+    <Card className="col-12">
       <ul
         className="nav nav-pills nav-sidebar flex-column"
         data-widget="treeview"

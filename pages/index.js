@@ -5,7 +5,7 @@ import Api from "../libs/api";
 
 import Layout from "../components/layout/layout";
 import Card from "../components/card/card";
-import BMI from "../components/calculate/bmi/bmi";
+// import BMI from "../components/calculate/bmi/bmi";
 import Sidebar from "../components/sidebar";
 
 const apiGroup = "todo";
@@ -27,29 +27,33 @@ const Index = () => {
   return (
     <Fragment>
       <Layout pageTitle={pageTitle}>
-        <div className="row">
-          <div className="col-3">
+        {/* <div className="row"> */}
+        {/* <div className="col-3">
             <div className="row">
               <Sidebar />
             </div>
-          </div>
-          <div className="col-9">
-            <div className="row">
-              <BMI></BMI>
+          </div> */}
+        {/* <div className="col-12"> */}
+        <div className="row">
+          {/* <BMI></BMI> */}
 
-              {/* {!isEmpty(data)
-                ? data.map(item => {
-                    return (
-                      <CardWithHeader size={4} title={item.id}>
-                        <img src="../static/img/avatar2.png" alt="" />
-                        <p>123</p>
-                      </CardWithHeader>
-                    );
-                  })
-                : null} */}
-            </div>
-          </div>
+          {!isEmpty(data) ? (
+            data.map((item, index) => {
+              return (
+                <Card className="col-3" title={item.id} key={index}>
+                  <img src="../static/img/avatar2.png" alt="" />
+                  <p>123</p>
+                </Card>
+              );
+            })
+          ) : (
+            <Card className="col-12 text-center">
+              <i className="fas fa-spinner"></i>
+            </Card>
+          )}
         </div>
+        {/* </div> */}
+        {/* </div> */}
       </Layout>
     </Fragment>
   );

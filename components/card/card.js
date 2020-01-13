@@ -1,6 +1,11 @@
-const Card = ({ size, withHeader = false, title = "", children }) => {
+const Card = ({
+  className = "col-12",
+  withHeader = false,
+  title = "",
+  children
+}) => {
   return (
-    <div className={`col-${size}`}>
+    <div className={className}>
       <div className="card">
         {withHeader ? (
           <div className="card-header">
