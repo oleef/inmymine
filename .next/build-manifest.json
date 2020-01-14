@@ -3,17 +3,17 @@
   "pages": {
     "/": [
       "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.0232f3042e562f13b585.js",
+      "static/chunks/commons.4e08d23a601e4bc7c614.js",
       "static/runtime/main-e228c3b385faeb82a858.js"
     ],
     "/_app": [
       "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.0232f3042e562f13b585.js",
+      "static/chunks/commons.4e08d23a601e4bc7c614.js",
       "static/runtime/main-e228c3b385faeb82a858.js"
     ],
     "/_error": [
       "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.0232f3042e562f13b585.js",
+      "static/chunks/commons.4e08d23a601e4bc7c614.js",
       "static/runtime/main-e228c3b385faeb82a858.js"
     ],
     "/_polyfills": [
@@ -21,12 +21,12 @@
     ],
     "/calculate": [
       "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.0232f3042e562f13b585.js",
+      "static/chunks/commons.4e08d23a601e4bc7c614.js",
       "static/runtime/main-e228c3b385faeb82a858.js"
     ],
     "/index": [
       "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.0232f3042e562f13b585.js",
+      "static/chunks/commons.4e08d23a601e4bc7c614.js",
       "static/runtime/main-e228c3b385faeb82a858.js"
     ]
   }
