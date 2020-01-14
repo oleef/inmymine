@@ -4,13 +4,15 @@ export const MENU_LIST = {
       id: "home",
       label: "หน้าหลัก",
       link: "/",
-      icon: "fas fa-th"
+      icon: "fas fa-th",
+      contentHeader: "Home"
     },
     {
       id: "calculate",
       label: "คำนวณ",
       link: "/calculate",
-      icon: "fas fa-th"
+      icon: "fas fa-th",
+      contentHeader: "Calculator"
     },
     {
       id: "health",

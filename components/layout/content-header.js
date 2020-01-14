@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 const ContentHeader = ({ pageTitle }) => {
   return (
     <div className="content-header">

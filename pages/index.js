@@ -11,7 +11,7 @@ import Sidebar from "../components/sidebar";
 const apiGroup = "todo";
 const pageTitle = "Calculators";
 
-const Index = () => {
+const Index = ({ url }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Index = () => {
 
   return (
     <Fragment>
-      <Layout pageTitle={pageTitle}>
+      <Layout url={url}>
         {/* <div className="row"> */}
         {/* <div className="col-3">
             <div className="row">
@@ -42,7 +42,7 @@ const Index = () => {
               return (
                 <Card className="col-3" title={item.id} key={index}>
                   <img src="../static/img/avatar2.png" alt="" />
-                  <p>123</p>
+                  <p>{item.title}</p>
                 </Card>
               );
             })

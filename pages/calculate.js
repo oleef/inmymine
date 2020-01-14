@@ -11,7 +11,7 @@ import Sidebar from "../components/sidebar";
 const apiGroup = "todo";
 const pageTitle = "Calculators";
 
-const Calculate = () => {
+const Calculate = ({ url }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Calculate = () => {
 
   return (
     <Fragment>
-      <Layout pageTitle={pageTitle}>
+      <Layout url={url}>
         <div className="row">
           <div className="col-3">
             <div className="row">

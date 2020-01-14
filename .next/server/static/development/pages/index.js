@@ -168,8 +168,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 var _jsxFileName = "/Users/atfirstbyte/Documents/inmymine/components/layout/content-header.js";
-
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 const ContentHeader = ({
   pageTitle
@@ -178,84 +178,84 @@ const ContentHeader = ({
     className: "content-header",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 3
+      lineNumber: 4
     },
     __self: undefined
   }, __jsx("div", {
     className: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 4
+      lineNumber: 5
     },
     __self: undefined
   }, __jsx("div", {
     className: "row mb-2",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 6
     },
     __self: undefined
   }, __jsx("div", {
     className: "col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 7
     },
     __self: undefined
   }, __jsx("h1", {
     className: "m-0 text-dark",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 8
     },
     __self: undefined
   }, pageTitle)), __jsx("div", {
     className: "col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     },
     __self: undefined
   }, __jsx("ol", {
     className: "breadcrumb float-sm-right",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 11
     },
     __self: undefined
   }, __jsx("li", {
     className: "breadcrumb-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 12
     },
     __self: undefined
   }, __jsx("a", {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 13
     },
     __self: undefined
   }, "Home")), __jsx("li", {
     className: "breadcrumb-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 15
     },
     __self: undefined
   }, __jsx("a", {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 16
     },
     __self: undefined
   }, "Layout")), __jsx("li", {
     className: "breadcrumb-item active",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 18
     },
     __self: undefined
   }, "Top Navigation"))))));
@@ -326,9 +326,12 @@ const Footer = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar */ "./components/layout/navbar.js");
-/* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./footer */ "./components/layout/footer.js");
-/* harmony import */ var _content_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./content-header */ "./components/layout/content-header.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar */ "./components/layout/navbar.js");
+/* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./footer */ "./components/layout/footer.js");
+/* harmony import */ var _content_header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./content-header */ "./components/layout/content-header.js");
+/* harmony import */ var _configs_menu_config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../configs/menu.config */ "./configs/menu.config.js");
 var _jsxFileName = "/Users/atfirstbyte/Documents/inmymine/components/layout/layout.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -336,54 +339,73 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
+
 const Layout = ({
-  pageTitle,
+  url,
   children
 }) => {
+  const getPageTitle = () => {
+    const item = _configs_menu_config__WEBPACK_IMPORTED_MODULE_5__["MENU_LIST"].menuList.filter(item => item.link === url.pathname);
+    return item[0].contentHeader;
+  };
+
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 14
     },
     __self: undefined
-  }, __jsx(_navbar__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 15
+    },
+    __self: undefined
+  }, __jsx("title", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: undefined
+  }, getPageTitle(), " - in my mine")), __jsx(_navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
     },
     __self: undefined
   }), __jsx("div", {
     className: "content-wrapper",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 19
     },
     __self: undefined
-  }, __jsx(_content_header__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    pageTitle: pageTitle,
+  }, __jsx(_content_header__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    pageTitle: getPageTitle(),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 20
     },
     __self: undefined
   }), __jsx("div", {
     className: "content",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 21
     },
     __self: undefined
   }, __jsx("div", {
     className: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 22
     },
     __self: undefined
-  }, children))), __jsx(_footer__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, children))), __jsx(_footer__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 25
     },
     __self: undefined
   }));
@@ -1229,7 +1251,7 @@ __webpack_require__.r(__webpack_exports__);
 const LOGO = {
   src: `${"http://localhost:3000"}/static/img/avatar2.png`,
   alt: "Inminemine logo",
-  class: "brand-image img-circle elevation-3",
+  className: "brand-image img-circle elevation-3",
   style: {
     opacity: ".8"
   }
@@ -1255,12 +1277,14 @@ const MENU_LIST = {
     id: "home",
     label: "หน้าหลัก",
     link: "/",
-    icon: "fas fa-th"
+    icon: "fas fa-th",
+    contentHeader: "Home"
   }, {
     id: "calculate",
     label: "คำนวณ",
     link: "/calculate",
-    icon: "fas fa-th"
+    icon: "fas fa-th",
+    contentHeader: "Calculator"
   }, {
     id: "health",
     label: "สุขภาพ",
@@ -7791,7 +7815,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const apiGroup = "todo";
 const pageTitle = "Calculators";
 
-const Index = () => {
+const Index = ({
+  url
+}) => {
   const {
     0: data,
     1: setData
@@ -7815,7 +7841,7 @@ const Index = () => {
     },
     __self: undefined
   }, __jsx(_components_layout_layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    pageTitle: pageTitle,
+    url: url,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 29
@@ -7852,7 +7878,7 @@ const Index = () => {
         lineNumber: 45
       },
       __self: undefined
-    }, "123"));
+    }, item.title));
   }) : __jsx(_components_card_card__WEBPACK_IMPORTED_MODULE_4__["default"], {
     className: "col-12 text-center",
     __source: {
@@ -7905,6 +7931,17 @@ module.exports = require("axios");
 /***/ (function(module, exports) {
 
 module.exports = require("lodash");
+
+/***/ }),
+
+/***/ "next/head":
+/*!****************************!*\
+  !*** external "next/head" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/head");
 
 /***/ }),
 

@@ -102,134 +102,248 @@ module.exports =
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _card_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../card/card */ "./components/card/card.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_parse_float__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/parse-float */ "./node_modules/@babel/runtime-corejs2/core-js/parse-float.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_parse_float__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_parse_float__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _card_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../card/card */ "./components/card/card.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _bmi_indicator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./bmi_indicator */ "./components/calculate/bmi/bmi_indicator.js");
+
 var _jsxFileName = "/Users/atfirstbyte/Documents/inmymine/components/calculate/bmi/bmi.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
 
 
 
 const BMI = () => {
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
+  const {
+    0: height,
+    1: setHeight
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])();
+  const {
+    0: weight,
+    1: setWeight
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])();
+  const {
+    0: bmi,
+    1: setBmi
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])();
+  const {
+    0: invalidInput,
+    1: setInvalidInput
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false);
+
+  const BMICalculate = () => {
+    if (height !== undefined && height !== "" && weight !== undefined && weight !== "") {
+      setInvalidInput(false);
+
+      const value = _babel_runtime_corejs2_core_js_parse_float__WEBPACK_IMPORTED_MODULE_0___default()(_babel_runtime_corejs2_core_js_parse_float__WEBPACK_IMPORTED_MODULE_0___default()(weight) / _babel_runtime_corejs2_core_js_parse_float__WEBPACK_IMPORTED_MODULE_0___default()(_babel_runtime_corejs2_core_js_parse_float__WEBPACK_IMPORTED_MODULE_0___default()(_babel_runtime_corejs2_core_js_parse_float__WEBPACK_IMPORTED_MODULE_0___default()(height) / 100) * 2));
+
+      setBmi(value.toFixed(2));
+    } else {
+      setInvalidInput(true);
+    }
+  };
+
+  const handleOnchange = e => {
+    let value;
+
+    if (e.target.value == "") {
+      value = "";
+
+      if (e.target.id == "height") {
+        setHeight(value);
+      } else {
+        setWeight(value);
+      }
+    } else {
+      if (e.target.value.length <= 6) {
+        value = Number(e.target.value);
+
+        if (e.target.id == "height") {
+          setHeight(value);
+        } else {
+          setWeight(value);
+        }
+      }
+    }
+  };
+
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 51
     },
     __self: undefined
-  }, __jsx(_card_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, __jsx(_card_card__WEBPACK_IMPORTED_MODULE_2__["default"], {
     className: "col-12",
-    title: "BMI",
+    title: "\u0E04\u0E48\u0E32\u0E14\u0E31\u0E0A\u0E19\u0E35\u0E21\u0E27\u0E25\u0E01\u0E32\u0E22 (BMI)",
     withHeader: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 52
     },
     __self: undefined
   }, __jsx("div", {
     className: "row",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 53
     },
     __self: undefined
   }, __jsx("div", {
     className: "col-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 54
     },
     __self: undefined
   }, __jsx("div", {
     className: "form-group",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 55
     },
     __self: undefined
   }, __jsx("input", {
-    type: "text",
+    type: "number",
+    id: "height",
     className: "form-control",
     placeholder: "\u0E2A\u0E48\u0E27\u0E19\u0E2A\u0E39\u0E07 (cm)",
+    value: height,
+    maxLength: "6",
+    onChange: e => handleOnchange(e),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 56
     },
     __self: undefined
   })), __jsx("div", {
     className: "form-group",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 66
     },
     __self: undefined
   }, __jsx("input", {
-    type: "text",
+    type: "number",
+    id: "weight",
+    min: "1",
+    max: "500",
     className: "form-control",
     placeholder: "\u0E19\u0E49\u0E33\u0E2B\u0E19\u0E31\u0E01 (kg)",
+    value: weight,
+    onChange: e => handleOnchange(e),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 67
     },
     __self: undefined
-  })), __jsx("hr", {
+  })), invalidInput ? __jsx("p", {
+    className: "text-danger",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 79
+    },
+    __self: undefined
+  }, "\u0E01\u0E23\u0E38\u0E13\u0E32\u0E01\u0E23\u0E2D\u0E01\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E43\u0E2B\u0E49\u0E04\u0E23\u0E1A\u0E16\u0E49\u0E27\u0E19") : null, __jsx("hr", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
     },
     __self: undefined
   }), __jsx("button", {
     className: "btn btn-lg btn-primary btn-block",
+    onClick: () => BMICalculate(),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 82
     },
     __self: undefined
   }, "\u0E04\u0E33\u0E19\u0E27\u0E13")), __jsx("div", {
-    className: "col-6",
+    className: "col",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 89
+    },
+    __self: undefined
+  }), __jsx("div", {
+    className: "col-4",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90
+    },
+    __self: undefined
+  }, __jsx("div", {
+    class: "alert alert-success text-center",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91
     },
     __self: undefined
   }, __jsx("h1", {
-    className: "text-center",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 92
     },
     __self: undefined
-  }, "BMI"), __jsx("div", {
-    class: "alert alert-success",
+  }, bmi), __jsx("hr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 93
     },
     __self: undefined
-  }, __jsx("h5", {
+  }), __jsx("h5", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 94
     },
     __self: undefined
-  }, __jsx("i", {
-    class: "icon fas fa-ban",
+  }, "BMI"))))), __jsx(_bmi_indicator__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 99
     },
     __self: undefined
-  }), " Alert!"), "Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart."), __jsx("p", {
-    className: "text-center",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36
-    },
-    __self: undefined
-  }, "24")))));
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (BMI);
+
+/***/ }),
+
+/***/ "./components/calculate/bmi/bmi_indicator.js":
+/*!***************************************************!*\
+  !*** ./components/calculate/bmi/bmi_indicator.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _card_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../card/card */ "./components/card/card.js");
+var _jsxFileName = "/Users/atfirstbyte/Documents/inmymine/components/calculate/bmi/bmi_indicator.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const BMIIndicator = () => {
+  return __jsx(_card_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    className: "col-12",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 4
+    },
+    __self: undefined
+  }, "1");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (BMIIndicator);
 
 /***/ }),
 
@@ -308,8 +422,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 var _jsxFileName = "/Users/atfirstbyte/Documents/inmymine/components/layout/content-header.js";
-
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 const ContentHeader = ({
   pageTitle
@@ -318,84 +432,84 @@ const ContentHeader = ({
     className: "content-header",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 3
+      lineNumber: 4
     },
     __self: undefined
   }, __jsx("div", {
     className: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 4
+      lineNumber: 5
     },
     __self: undefined
   }, __jsx("div", {
     className: "row mb-2",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 6
     },
     __self: undefined
   }, __jsx("div", {
     className: "col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 7
     },
     __self: undefined
   }, __jsx("h1", {
     className: "m-0 text-dark",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 8
     },
     __self: undefined
   }, pageTitle)), __jsx("div", {
     className: "col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     },
     __self: undefined
   }, __jsx("ol", {
     className: "breadcrumb float-sm-right",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 11
     },
     __self: undefined
   }, __jsx("li", {
     className: "breadcrumb-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 12
     },
     __self: undefined
   }, __jsx("a", {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 13
     },
     __self: undefined
   }, "Home")), __jsx("li", {
     className: "breadcrumb-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 15
     },
     __self: undefined
   }, __jsx("a", {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 16
     },
     __self: undefined
   }, "Layout")), __jsx("li", {
     className: "breadcrumb-item active",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 18
     },
     __self: undefined
   }, "Top Navigation"))))));
@@ -466,9 +580,12 @@ const Footer = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar */ "./components/layout/navbar.js");
-/* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./footer */ "./components/layout/footer.js");
-/* harmony import */ var _content_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./content-header */ "./components/layout/content-header.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar */ "./components/layout/navbar.js");
+/* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./footer */ "./components/layout/footer.js");
+/* harmony import */ var _content_header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./content-header */ "./components/layout/content-header.js");
+/* harmony import */ var _configs_menu_config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../configs/menu.config */ "./configs/menu.config.js");
 var _jsxFileName = "/Users/atfirstbyte/Documents/inmymine/components/layout/layout.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -476,54 +593,73 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
+
 const Layout = ({
-  pageTitle,
+  url,
   children
 }) => {
+  const getPageTitle = () => {
+    const item = _configs_menu_config__WEBPACK_IMPORTED_MODULE_5__["MENU_LIST"].menuList.filter(item => item.link === url.pathname);
+    return item[0].contentHeader;
+  };
+
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 14
     },
     __self: undefined
-  }, __jsx(_navbar__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 15
+    },
+    __self: undefined
+  }, __jsx("title", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: undefined
+  }, getPageTitle(), " - in my mine")), __jsx(_navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
     },
     __self: undefined
   }), __jsx("div", {
     className: "content-wrapper",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 19
     },
     __self: undefined
-  }, __jsx(_content_header__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    pageTitle: pageTitle,
+  }, __jsx(_content_header__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    pageTitle: getPageTitle(),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 20
     },
     __self: undefined
   }), __jsx("div", {
     className: "content",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 21
     },
     __self: undefined
   }, __jsx("div", {
     className: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 22
     },
     __self: undefined
-  }, children))), __jsx(_footer__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, children))), __jsx(_footer__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 25
     },
     __self: undefined
   }));
@@ -1369,7 +1505,7 @@ __webpack_require__.r(__webpack_exports__);
 const LOGO = {
   src: `${"http://localhost:3000"}/static/img/avatar2.png`,
   alt: "Inminemine logo",
-  class: "brand-image img-circle elevation-3",
+  className: "brand-image img-circle elevation-3",
   style: {
     opacity: ".8"
   }
@@ -1395,12 +1531,14 @@ const MENU_LIST = {
     id: "home",
     label: "หน้าหลัก",
     link: "/",
-    icon: "fas fa-th"
+    icon: "fas fa-th",
+    contentHeader: "Home"
   }, {
     id: "calculate",
     label: "คำนวณ",
     link: "/calculate",
-    icon: "fas fa-th"
+    icon: "fas fa-th",
+    contentHeader: "Calculator"
   }, {
     id: "health",
     label: "สุขภาพ",
@@ -1564,6 +1702,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/get-own-prope
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/keys */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/keys.js");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/parse-float.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/parse-float.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/parse-float */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/parse-float.js");
 
 /***/ }),
 
@@ -1883,6 +2032,19 @@ module.exports = function getOwnPropertyDescriptor(it, key) {
 
 __webpack_require__(/*! ../../modules/es6.object.keys */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es6.object.keys.js");
 module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_core.js").Object.keys;
+
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/parse-float.js":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/parse-float.js ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ../modules/es6.parse-float */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es6.parse-float.js");
+module.exports = __webpack_require__(/*! ../modules/_core */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_core.js").parseFloat;
 
 
 /***/ }),
@@ -3705,6 +3867,25 @@ module.exports = function (KEY, exec) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_parse-float.js":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_parse-float.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $parseFloat = __webpack_require__(/*! ./_global */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_global.js").parseFloat;
+var $trim = __webpack_require__(/*! ./_string-trim */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_string-trim.js").trim;
+
+module.exports = 1 / $parseFloat(__webpack_require__(/*! ./_string-ws */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_string-ws.js") + '-0') !== -Infinity ? function parseFloat(str) {
+  var string = $trim(String(str), 3);
+  var result = $parseFloat(string);
+  return result === 0 && string.charAt(0) == '-' ? -0 : result;
+} : $parseFloat;
+
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_perform.js":
 /*!**********************************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_perform.js ***!
@@ -3986,6 +4167,60 @@ module.exports = function (TO_STRING) {
       : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
   };
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_string-trim.js":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_string-trim.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_export.js");
+var defined = __webpack_require__(/*! ./_defined */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_defined.js");
+var fails = __webpack_require__(/*! ./_fails */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_fails.js");
+var spaces = __webpack_require__(/*! ./_string-ws */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_string-ws.js");
+var space = '[' + spaces + ']';
+var non = '\u200b\u0085';
+var ltrim = RegExp('^' + space + space + '*');
+var rtrim = RegExp(space + space + '*$');
+
+var exporter = function (KEY, exec, ALIAS) {
+  var exp = {};
+  var FORCE = fails(function () {
+    return !!spaces[KEY]() || non[KEY]() != non;
+  });
+  var fn = exp[KEY] = FORCE ? exec(trim) : spaces[KEY];
+  if (ALIAS) exp[ALIAS] = fn;
+  $export($export.P + $export.F * FORCE, 'String', exp);
+};
+
+// 1 -> String#trimLeft
+// 2 -> String#trimRight
+// 3 -> String#trim
+var trim = exporter.trim = function (string, TYPE) {
+  string = String(defined(string));
+  if (TYPE & 1) string = string.replace(ltrim, '');
+  if (TYPE & 2) string = string.replace(rtrim, '');
+  return string;
+};
+
+module.exports = exporter;
+
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_string-ws.js":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_string-ws.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003' +
+  '\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
 
 
 /***/ }),
@@ -4480,6 +4715,21 @@ __webpack_require__(/*! ./_object-sap */ "./node_modules/@babel/runtime-corejs2/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es6.parse-float.js":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es6.parse-float.js ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_export.js");
+var $parseFloat = __webpack_require__(/*! ./_parse-float */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_parse-float.js");
+// 18.2.4 parseFloat(string)
+$export($export.G + $export.F * (parseFloat != $parseFloat), { parseFloat: $parseFloat });
 
 
 /***/ }),
@@ -7932,7 +8182,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const apiGroup = "todo";
 const pageTitle = "Calculators";
 
-const Calculate = () => {
+const Calculate = ({
+  url
+}) => {
   const {
     0: data,
     1: setData
@@ -7956,7 +8208,7 @@ const Calculate = () => {
     },
     __self: undefined
   }, __jsx(_components_layout_layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    pageTitle: pageTitle,
+    url: url,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 29
@@ -8047,6 +8299,17 @@ module.exports = require("axios");
 /***/ (function(module, exports) {
 
 module.exports = require("lodash");
+
+/***/ }),
+
+/***/ "next/head":
+/*!****************************!*\
+  !*** external "next/head" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/head");
 
 /***/ }),
 
