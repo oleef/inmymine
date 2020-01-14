@@ -4,12 +4,11 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: npm install
-      run: npm install
-    - name: npm export
-      run: npm export
+      - uses: actions/checkout@v1
+      - name: npm install
+        run: npm install
+      - name: npm export
+        run: npm run export
