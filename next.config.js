@@ -9,10 +9,10 @@ module.exports = phase => {
   const env = {
     APP_DOMAIN: (() => {
       if (isDev) return "http://localhost:3000";
-      if (isSer) return "https://inmymine.com";
+      if (isSer) return "http://www.inmymine.com";
     })(),
     API_DOMAIN: (() => {
-      if (isDev) return "https://jsonplaceholder.typicode.com";
+      return "https://jsonplaceholder.typicode.com";
     })()
   };
   return {
